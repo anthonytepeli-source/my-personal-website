@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — Anthony Abeli Tepeli</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#070B14;--text-dark:#1F2937;--text-muted:#6B7280;--bg-white:#FFFFFF;--bg-soft:#F9FAFB;--border:#E5E7EB}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text-dark);background:var(--bg-white);line-height:1.75;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;color:var(--navy);line-height:1.25}
+p{margin-bottom:1em}
+img{display:block;max-width:100%}
+a{color:var(--navy)}
+
+.site-header{position:sticky;top:0;z-index:1000;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.08)}
+.navbar{max-width:1150px;margin:0 auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;text-decoration:none;letter-spacing:.3px}
+.brand-sub{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:400;color:rgba(255,255,255,.4);letter-spacing:2px;margin-left:8px}
+.nav-links{list-style:none;display:flex;gap:2.2rem}
+.nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.88rem;font-weight:500;font-style:italic;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+
+.banner{position:relative;width:100%;height:150px;background-color:#02030a;background-image:url('images/banner.jpg');background-size:cover;background-position:center center;background-repeat:no-repeat;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.banner::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.55) 0%,rgba(0,0,0,.82) 100%);z-index:1}
+.banner-content{position:relative;z-index:2;text-align:center;padding:0 2rem}
+.banner-eyebrow{color:rgba(255,255,255,.65);font-size:.7rem;letter-spacing:4px;text-transform:uppercase;margin:0 0 .4rem;font-weight:500}
+.banner-heading{color:#fff;font-family:'Playfair Display',serif;font-size:clamp(1.15rem,2.1vw,1.6rem);font-weight:600;line-height:1.2;margin:0;text-shadow:0 2px 18px rgba(0,0,0,.95)}
+
+.content-section{padding:5rem 2rem;background:var(--bg-white)}
+.content-section.alt{background:var(--bg-soft)}
+.section-inner{max-width:1000px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:2.5rem}
+.section-label{display:inline-block;text-transform:uppercase;letter-spacing:3px;font-size:.7rem;font-weight:500;color:var(--text-muted);margin-bottom:.5rem}
+.section-header h2{font-size:clamp(1.5rem,2.8vw,2.1rem)}
+.lead{max-width:820px;margin:0 auto 2.5rem;font-size:1.02rem;color:var(--text-dark);text-align:center}
+
+/* Interest cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin:2rem 0 1rem}
+.card{background:var(--bg-white);padding:2rem 1.8rem;border-radius:10px;border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
+.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(7,11,20,.08)}
+.card h3{font-size:1.08rem;margin-bottom:.7rem}
+.card p{font-size:.94rem;margin:0;color:var(--text-muted)}
+
+/* Research experience entries */
+.entry{padding:1.6rem 0;border-bottom:1px solid var(--border)}
+.entry:last-child{border-bottom:none}
+.entry-head{display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;flex-wrap:wrap}
+.entry-title{font-weight:600;color:var(--navy);font-size:1rem}
+.entry-date{font-style:italic;color:var(--text-muted);font-size:.88rem;white-space:nowrap}
+.entry-sub{font-style:italic;color:var(--text-muted);font-size:.9rem;margin-top:.2rem}
+.entry p{margin:.6rem 0 0;font-size:.95rem;color:var(--text-dark)}
+
+/* Publications */
+.pub-list{list-style:none}
+.pub-list li{padding:1.1rem 0;border-bottom:1px solid var(--border);font-size:.95rem;display:grid;grid-template-columns:70px 1fr;gap:1.2rem}
+.pub-list li:last-child{border-bottom:none}
+.pub-list .yr{font-weight:600;color:var(--navy);font-style:italic}
+.pub-list a{color:var(--navy);text-decoration:underline;text-decoration-color:rgba(7,11,20,.25);text-underline-offset:3px}
+
+/* Skills */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:1rem}
+.skill-box{background:var(--bg-white);padding:1.6rem 1.7rem;border-radius:10px;border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
+.skill-box:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(7,11,20,.07)}
+.skill-box h3{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:.7rem}
+.skill-box p{margin:0;font-size:.95rem;color:var(--text-dark);line-height:1.65}
+
+.site-footer{text-align:center;padding:2rem;background:var(--navy);color:rgba(255,255,255,.4);font-size:.85rem}
+
+@media(max-width:640px){
+  .navbar{flex-direction:column;gap:.8rem;padding:1rem}
+  .nav-links{gap:1.2rem;flex-wrap:wrap;justify-content:center}
+  .nav-links a{font-size:.82rem}
+  .banner{height:120px}
+  .content-section{padding:3.5rem 1.2rem}
+  .pub-list li{grid-template-columns:1fr;gap:.2rem}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a href="index.html" class="brand">Anthony A. Tepeli<span class="brand-sub">· ASTRO</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+      <li><a href="outreach.html">Outreach</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="banner">
+  <div class="banner-content">
+    <p class="banner-eyebrow">Research</p>
+    <h2 class="banner-heading">The Violent and Transient Universe</h2>
+  </div>
+</section>
+
+<!-- RESEARCH INTERESTS -->
+<section class="content-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Research Interests</span>
+      <h2>What I Study</h2>
+    </div>
+
+    <p class="lead">
+      I am interested in the most energetic and rapidly changing events in the Universe — phenomena that reveal how stars live and die, how compact objects interact, and how extreme physical conditions produce the elements and radiation we observe.
+    </p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Stellar Explosions &amp; Nucleosynthesis</h3>
+        <p>How stars end their lives and forge the elements through explosive burning and neutrino-driven processes.</p>
+      </div>
+      <div class="card">
+        <h3>Black Holes, Neutron Stars &amp; Accretion</h3>
+        <p>The physics of compact objects, accretion discs, and high-energy emission around them.</p>
+      </div>
+      <div class="card">
+        <h3>Mergers, Disruptions &amp; Transients</h3>
+        <p>Compact-object mergers, tidal disruption events, and the transient sky across wavelengths.</p>
+      </div>
+    </div>
+
+    <p class="lead" style="margin-top:2rem">
+      I hope to pursue these areas through a combination of theoretical modelling, computational methods, and observations. My background in computational physics and chemistry gives me a unique advantage in exploring <strong>r-process nucleosynthesis and the formation of heavy elements</strong> in the violent Universe.
+    </p>
+  </div>
+</section>
+
+<!-- RESEARCH EXPERIENCE -->
+<section class="content-section alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Experience</span>
+      <h2>Research Experience</h2>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Cosmology — Perimeter Institute for Theoretical Physics</span>
+        <span class="entry-date">2026 – Present</span>
+      </div>
+      <div class="entry-sub">Online course participant</div>
+      <p>Studying modern cosmology, including FRW spacetime, the expanding universe, nucleosynthesis, the cosmic microwave background, dark matter, dark energy, inflation, cosmological perturbations, and quantum field theory in curved spacetime.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Space Science &amp; International Cooperation — American Spaces Tanzania</span>
+        <span class="entry-date">2026</span>
+      </div>
+      <div class="entry-sub">Participant under Dr. Noorali Tayabali Jiwaji</div>
+      <p>Participated in programmes exploring open skies, space innovation, international cooperation, and the peaceful use of outer space.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Molecular Simulation of Thermodynamic Systems — Technische Universität Braunschweig</span>
+        <span class="entry-date">Apr – Aug 2026</span>
+      </div>
+      <div class="entry-sub">With Prof. Dr.-Ing. Gabriele Raabe</div>
+      <p>Completed a specialized curriculum in the computational modeling of thermodynamic systems, with an international cohort of students from the United States, Brazil, and Tanzania.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Molecular Dynamics Simulations — University of Miami &amp; University of Dar es Salaam</span>
+        <span class="entry-date">2025 – Present</span>
+      </div>
+      <div class="entry-sub">Co-mentored by Prof. Andrew Paluch and Dr. Paul Lucas</div>
+      <p>Developed molecular-simulation methods to predict the equilibrium solubility of solids, applying computational thermodynamics and molecular dynamics to connect molecular-level models with chemical-engineering applications.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Computational Quantum Physics — University of Dar es Salaam</span>
+        <span class="entry-date">2025 – Present</span>
+      </div>
+      <div class="entry-sub">With Dr. Amos Sospeter Kiyumbi, Department of Physics</div>
+      <p>Investigating photodynamic mechanisms using quantum-mechanical and computational approaches. Studying quantum light–matter interactions, photosensitizer electronic-excitation dynamics, and reactive oxygen species (ROS) generation.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Practical Observational Astronomy — University of Dodoma</span>
+        <span class="entry-date">Jun 2021 – Aug 2022</span>
+      </div>
+      <div class="entry-sub">With Prof. P. V. K. Rao, Department of Physics</div>
+      <p>Participated in telescope assembly and practical observational astronomy, including observations of the Moon and planetary surfaces. Applied imaging polarimetry to material analysis and structural investigation.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">10th IRAM 30-meter School on Millimetre Astronomy — IRAM</span>
+        <span class="entry-date">2021</span>
+      </div>
+      <p>Completed specialized training in millimetre and submillimetre astronomy, covering radio-astronomical instrumentation, observing strategies, data calibration and processing, star formation, the interstellar medium, galaxies, high-redshift astronomy, and Solar System studies. Received a practical introduction to GILDAS/CLASS, NOEMA, interferometry, and millimetre-wave polarimetry.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="content-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Publications</span>
+      <h2>Selected Manuscripts</h2>
+    </div>
+
+    <ul class="pub-list">
+      <li><span class="yr">2026</span><span><strong>Co-author.</strong> "In Silico Investigation of Lovastatin's Solvation Free Energy as an Inhibitor of HMG-CoA Reductase in Various Solvent Environments." <em>Manuscript under review.</em></span></li>
+      <li><span class="yr">2025</span><span><strong>Anthony A. Tepeli.</strong> <a href="http://dx.doi.org/10.2139/ssrn.7225368" target="_blank" rel="noopener">"Assessment of the Honey Purity by Using Imaging Polarimetry Technique."</a> <em>Manuscript currently under review.</em></span></li>
+      <li><span class="yr">2025</span><span><strong>Anthony A. Tepeli.</strong> <a href="http://dx.doi.org/10.2139/ssrn.7053318" target="_blank" rel="noopener">"Computational Investigation of Xanomeline Analogues Targeting mAChR M1 for Schizophrenia Treatment."</a> <em>Manuscript under supervisor revision.</em></span></li>
+      <li><span class="yr">2025</span><span><strong>Co-author.</strong> <a href="https://zenodo.org/records/18632788" target="_blank" rel="noopener">"Dynamic Stabilization of HMG-CoA Reductase through Optimized Flavonoid Scaffolds: A Mechanistic Investigation of Kaempferol and Apigenin."</a> <em>Manuscript under review.</em></span></li>
+      <li><span class="yr">2025</span><span><strong>Co-author.</strong> "In Silico Investigation of Methyl Rosmarinate Solvation Free Energy as an Inhibitor of CsgD Protein of Escherichia." <em>Manuscript under supervisor revision.</em></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="content-section alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Skills</span>
+      <h2>Computational Toolkit</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-box">
+        <h3>Languages</h3>
+        <p>Python · C++ · MATLAB · Bash Script</p>
+      </div>
+      <div class="skill-box">
+        <h3>Software</h3>
+        <p>Linux-based scientific software · LaTeX · GILDAS · Gaussian</p>
+      </div>
+      <div class="skill-box">
+        <h3>Other Tools</h3>
+        <p>GROMACS · Gaussian · Pandas · Astropy</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Anthony Abeli Tepeli · Physics Student at the University of Dar es Salaam</p>
+</footer>
+
+</body>
+</html>

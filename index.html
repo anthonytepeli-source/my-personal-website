@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anthony Abeli Tepeli — Home</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#070B14;--text-dark:#1F2937;--text-muted:#6B7280;--bg-white:#FFFFFF;--bg-soft:#F9FAFB;--border:#E5E7EB}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text-dark);background:var(--bg-white);line-height:1.75;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;color:var(--navy);line-height:1.25}
+p{margin-bottom:1em}
+img{display:block;max-width:100%}
+a{color:var(--navy)}
+
+.site-header{position:sticky;top:0;z-index:1000;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.08)}
+.navbar{max-width:1150px;margin:0 auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;text-decoration:none;letter-spacing:.3px}
+.brand-sub{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:400;color:rgba(255,255,255,.4);letter-spacing:2px;margin-left:8px}
+.nav-links{list-style:none;display:flex;gap:2.2rem}
+.nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.88rem;font-weight:500;font-style:italic;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+
+.banner{position:relative;width:100%;height:150px;background-color:#02030a;background-image:url('images/banner.jpg');background-size:cover;background-position:center center;background-repeat:no-repeat;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.banner::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.55) 0%,rgba(0,0,0,.82) 100%);z-index:1}
+.banner-content{position:relative;z-index:2;text-align:center;padding:0 2rem}
+.banner-eyebrow{color:rgba(255,255,255,.65);font-size:.7rem;letter-spacing:4px;text-transform:uppercase;margin:0 0 .4rem;font-weight:500}
+.banner-heading{color:#fff;font-family:'Playfair Display',serif;font-size:clamp(1.15rem,2.1vw,1.6rem);font-weight:600;line-height:1.2;margin:0;text-shadow:0 2px 18px rgba(0,0,0,.95)}
+
+.content-section{padding:5rem 2rem;background:var(--bg-white)}
+.content-section.alt{background:var(--bg-soft)}
+.section-inner{max-width:1000px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:2.5rem}
+.section-label{display:inline-block;text-transform:uppercase;letter-spacing:3px;font-size:.7rem;font-weight:500;color:var(--text-muted);margin-bottom:.5rem}
+.section-header h2{font-size:clamp(1.5rem,2.8vw,2.1rem)}
+
+/* === Tight padding modifiers to close gaps around the photo === */
+.tight-bottom{padding-bottom:1.5rem}
+.tight-top{padding-top:2rem}
+.photo-section{padding:1rem 2rem 1rem;background:var(--bg-soft)}
+
+/* About grid */
+.about-grid{display:grid;grid-template-columns:280px 1fr;gap:3.5rem;align-items:start;margin-bottom:2rem}
+.about-photo{display:flex;justify-content:center;padding-top:.4rem}
+.portrait{width:260px;height:260px;object-fit:cover;border-radius:50%;box-shadow:0 10px 40px rgba(7,11,20,.12)}
+.about-text p{font-size:1.02rem;color:var(--text-dark)}
+.about-text strong{color:var(--navy);font-weight:600}
+
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:1rem}
+.skill-box{background:var(--bg-white);padding:1.6rem 1.7rem;border-radius:10px;border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
+.skill-box:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(7,11,20,.07)}
+.skill-box h3{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:var(--text-muted);margin-bottom:.7rem}
+.skill-box p{margin:0;font-size:.95rem;color:var(--text-dark);line-height:1.65}
+
+.awards-list{list-style:none;margin-top:1rem}
+.awards-list li{padding:.9rem 0;border-bottom:1px solid var(--border);font-size:.96rem;display:grid;grid-template-columns:70px 1fr;gap:1rem}
+.awards-list li:last-child{border-bottom:none}
+.awards-list .yr{font-weight:600;color:var(--navy);font-style:italic}
+.awards-list a{color:var(--navy);text-decoration:underline;text-decoration-color:rgba(7,11,20,.25);text-underline-offset:3px}
+
+/* Award photo: large, sharp, uncropped */
+.award-photo{max-width:1000px;margin:0 auto;width:100%}
+.award-photo figure{
+  width:100%;
+  margin:0;
+  border-radius:10px;
+  overflow:hidden;
+  background:var(--bg-soft);
+  border:1px solid var(--border);
+}
+.award-photo img{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  display:block;
+  image-rendering:auto;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  transform:translateZ(0);
+  filter:none;
+  opacity:1;
+}
+.award-photo figcaption{
+  padding:1.1rem 1.4rem;
+  font-size:.9rem;
+  color:var(--text-muted);
+  text-align:center;
+  font-style:italic;
+  border-top:1px solid var(--border);
+  background:var(--bg-white);
+}
+
+.site-footer{text-align:center;padding:2rem;background:var(--navy);color:rgba(255,255,255,.4);font-size:.85rem}
+
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;text-align:center;gap:2rem}
+  .about-text{text-align:left}
+}
+@media(max-width:640px){
+  .navbar{flex-direction:column;gap:.8rem;padding:1rem}
+  .nav-links{gap:1.2rem;flex-wrap:wrap;justify-content:center}
+  .nav-links a{font-size:.82rem}
+  .banner{height:120px}
+  .content-section{padding:3rem 1.2rem}
+  .tight-bottom{padding-bottom:1rem}
+  .tight-top{padding-top:1.5rem}
+  .photo-section{padding:1rem 1.2rem}
+  .portrait{width:200px;height:200px}
+  .awards-list li{grid-template-columns:1fr;gap:.2rem}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a href="index.html" class="brand">Anthony A. Tepeli<span class="brand-sub">· ASTRO</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="outreach.html">Outreach</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="banner">
+  <div class="banner-content">
+    <p class="banner-eyebrow">Physics Student · University of Dar es Salaam</p>
+    <h2 class="banner-heading">Exploring the Violent and Transient Universe</h2>
+  </div>
+</section>
+
+<!-- ABOUT / RESEARCH JOURNEY (tight bottom) -->
+<section class="content-section tight-bottom">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">About Me</span>
+      <h2>My Research Journey</h2>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-photo">
+        <img src="images/my personal profile image.jpg" alt="Anthony Abeli Tepeli" class="portrait">
+      </div>
+      <div class="about-text">
+        <p>My interest in physics and astrophysics began in childhood with a simple curiosity about how the Universe works. At university, that curiosity led me into computational physics, where my first research experience grew from <strong>statistical thermodynamics and molecular dynamics</strong> at the Computational Unit of UDSM-DUCE. I developed skills in <strong>C++, Python, Bash, and MATLAB</strong> for modelling, analysis, and visualization, and my research later expanded into molecular simulation, quantum physics, and computational chemistry, with work recognized at the <strong>11th UDSM Research and Innovation Week</strong> and by <strong>COSTECH</strong>.</p>
+
+        <p>Alongside computation, I have pursued observational astronomy, including the <strong>IRAM 30-meter School on Millimetre Astronomy</strong>, where I trained in radio astronomy, observing, data processing, and interferometry, with practical exposure to <strong>GILDAS/CLASS and NOEMA</strong>. These experiences have given me both computational and observational foundations, and I now hope to bring them together in studying the <strong>violent and transient Universe</strong>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARD PHOTO (minimal padding top/bottom) -->
+<section class="photo-section">
+  <div class="section-inner">
+    <div class="award-photo">
+      <figure>
+        <img src="images/my research journey picture winning an award.jpg" alt="Winning an award at UDSM Research and Innovation Week">
+        <figcaption>Receiving recognition at the University of Dar es Salaam 11th Research and Innovation Week.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- TECHNICAL SKILLS (tight top) -->
+<section class="content-section tight-top">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Technical Skills</span>
+      <h2>Computational Toolkit</h2>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-box">
+        <h3>Languages</h3>
+        <p>Python · C++ · MATLAB · Bash Script</p>
+      </div>
+      <div class="skill-box">
+        <h3>Software</h3>
+        <p>Linux-based scientific software · LaTeX · GILDAS · Gaussian</p>
+      </div>
+      <div class="skill-box">
+        <h3>Other Tools</h3>
+        <p>GROMACS · Gaussian · Pandas · Astropy</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AWARDS LIST -->
+<section class="content-section alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Selected Recognition</span>
+      <h2>Honors &amp; Awards</h2>
+    </div>
+
+    <ul class="awards-list">
+      <li><span class="yr">2026</span><span><strong><a href="https://www.instagram.com/p/DZgDQZojfWj/?img_index=1" target="_blank" rel="noopener">COSTECH National Recognition Award</a></strong> — from the Tanzania Commission for Science and Technology, for computer-based schizophrenia drug exploration.</span></li>
+      <li><span class="yr">2026</span><span><strong>First Place, Undergraduate Researcher of the Year</strong> (College Level), University of Dar es Salaam.</span></li>
+      <li><span class="yr">2026</span><span><strong><a href="https://duce.ac.tz/duce/news/duce-student-recognised-innovative-schizophrenia-treatment-research" target="_blank" rel="noopener">Second Place, Best Undergraduate Innovation Project</a></strong> — 11th University of Dar es Salaam Research and Innovation Week.</span></li>
+      <li><span class="yr">2025–26</span><span><strong>Rotary Scholarship Award for Academic Merit.</strong></span></li>
+      <li><span class="yr">2024–25</span><span><strong>Rotary Scholarship Award for Academic Merit.</strong></span></li>
+      <li><span class="yr">2021</span><span><strong><a href="https://iram-institute.org/science-portal/events/30m-school/year-2021/participants-list-2021/" target="_blank" rel="noopener">Institut de Radioastronomie Millimétrique (IRAM) Certification.</a></strong></span></li>
+    </ul>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Anthony Abeli Tepeli · Physics Student at the University of Dar es Salaam</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outreach — Anthony Abeli Tepeli</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#070B14;--text-dark:#1F2937;--text-muted:#6B7280;--bg-white:#FFFFFF;--bg-soft:#F9FAFB;--border:#E5E7EB}
+body{font-family:'Inter',system-ui,sans-serif;color:var(--text-dark);background:var(--bg-white);line-height:1.75;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;color:var(--navy);line-height:1.25}
+p{margin-bottom:1em}
+img{display:block;max-width:100%}
+a{color:var(--navy)}
+
+.site-header{position:sticky;top:0;z-index:1000;background:var(--navy);border-bottom:1px solid rgba(255,255,255,.08)}
+.navbar{max-width:1150px;margin:0 auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;text-decoration:none;letter-spacing:.3px}
+.brand-sub{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:400;color:rgba(255,255,255,.4);letter-spacing:2px;margin-left:8px}
+.nav-links{list-style:none;display:flex;gap:2.2rem}
+.nav-links a{color:rgba(255,255,255,.55);text-decoration:none;font-size:.88rem;font-weight:500;font-style:italic;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+
+.banner{position:relative;width:100%;height:150px;background-color:#02030a;background-image:url('images/banner.jpg');background-size:cover;background-position:center center;background-repeat:no-repeat;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.banner::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,0,0,.55) 0%,rgba(0,0,0,.82) 100%);z-index:1}
+.banner-content{position:relative;z-index:2;text-align:center;padding:0 2rem}
+.banner-eyebrow{color:rgba(255,255,255,.65);font-size:.7rem;letter-spacing:4px;text-transform:uppercase;margin:0 0 .4rem;font-weight:500}
+.banner-heading{color:#fff;font-family:'Playfair Display',serif;font-size:clamp(1.15rem,2.1vw,1.6rem);font-weight:600;line-height:1.2;margin:0;text-shadow:0 2px 18px rgba(0,0,0,.95)}
+
+.content-section{padding:5rem 2rem;background:var(--bg-white)}
+.content-section.alt{background:var(--bg-soft)}
+.section-inner{max-width:1000px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:2.5rem}
+.section-label{display:inline-block;text-transform:uppercase;letter-spacing:3px;font-size:.7rem;font-weight:500;color:var(--text-muted);margin-bottom:.5rem}
+.section-header h2{font-size:clamp(1.5rem,2.8vw,2.1rem)}
+
+.two-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.topic-card{background:var(--bg-white);padding:2rem;border-radius:10px;border:1px solid var(--border);transition:transform .25s,box-shadow .25s}
+.topic-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(7,11,20,.08)}
+.topic-card h3{font-size:1.1rem;margin-bottom:1rem}
+.topic-card p{font-size:.96rem;margin:0;color:var(--text-dark)}
+.topic-card strong{color:var(--navy);font-weight:600}
+
+.entry{padding:1.6rem 0;border-bottom:1px solid var(--border)}
+.entry:last-child{border-bottom:none}
+.entry-head{display:flex;justify-content:space-between;align-items:baseline;gap:1.5rem;flex-wrap:wrap}
+.entry-title{font-weight:600;color:var(--navy);font-size:1rem}
+.entry-date{font-style:italic;color:var(--text-muted);font-size:.88rem;white-space:nowrap}
+.entry p{margin:.6rem 0 0;font-size:.95rem;color:var(--text-dark)}
+.entry a{color:var(--navy);text-decoration:underline;text-decoration-color:rgba(7,11,20,.25);text-underline-offset:3px}
+
+/* Top photo section (right after banner) */
+.top-photo{padding:3rem 2rem 1rem;background:var(--bg-white)}
+.top-photo-inner{max-width:1000px;margin:0 auto}
+.top-photo figure{
+  width:100%;
+  margin:0;
+  border-radius:10px;
+  overflow:hidden;
+  background:var(--bg-soft);
+  border:1px solid var(--border);
+}
+.top-photo img{
+  width:100%;
+  height:auto;
+  object-fit:contain;
+  display:block;
+  image-rendering:auto;
+  -webkit-backface-visibility:hidden;
+  backface-visibility:hidden;
+  transform:translateZ(0);
+  filter:none;
+  opacity:1;
+}
+.top-photo figcaption{
+  padding:1.1rem 1.4rem;
+  font-size:.9rem;
+  color:var(--text-muted);
+  text-align:center;
+  font-style:italic;
+  border-top:1px solid var(--border);
+  background:var(--bg-white);
+}
+
+.site-footer{text-align:center;padding:2rem;background:var(--navy);color:rgba(255,255,255,.4);font-size:.85rem}
+
+@media(max-width:900px){.two-cards{grid-template-columns:1fr}}
+@media(max-width:640px){
+  .navbar{flex-direction:column;gap:.8rem;padding:1rem}
+  .nav-links{gap:1.2rem;flex-wrap:wrap;justify-content:center}
+  .nav-links a{font-size:.82rem}
+  .banner{height:120px}
+  .content-section{padding:3.5rem 1.2rem}
+  .top-photo{padding:2rem 1.2rem .5rem}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="navbar">
+    <a href="index.html" class="brand">Anthony A. Tepeli<span class="brand-sub">· ASTRO</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="outreach.html" class="active">Outreach</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="banner">
+  <div class="banner-content">
+    <p class="banner-eyebrow">Observation &amp; Outreach</p>
+    <h2 class="banner-heading">Looking Up, Giving Back</h2>
+  </div>
+</section>
+
+<!-- PHOTO (right after banner) -->
+<section class="top-photo">
+  <div class="top-photo-inner">
+    <figure>
+      <img src="images/Medical camp pictures.jpg" alt="Medical camp outreach in Dar es Salaam">
+      <figcaption>Volunteering at a Rotary-supported medical camp in Dar es Salaam, providing free healthcare to local communities.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="content-section">
+  <div class="section-inner">
+    <div class="two-cards">
+      <div class="topic-card">
+        <h3>Observation &amp; Astronomy</h3>
+        <p>As a research scholar with <strong>Prof. P. V. K. Rao</strong> at the University of Dodoma, I worked in observational astronomy, including telescope assembly and observations of the <strong>Moon and planetary surfaces</strong>. I applied imaging polarimetry to material analysis, and later trained at the <strong>IRAM 30-meter School on Millimetre Astronomy</strong> in interferometry, data calibration, and radio-astronomical instrumentation. I have also learned from <strong>Dr. Noorali Jiwaji</strong> through astronomy activities and space-science initiatives organized through <strong>American Spaces in Tanzania under the U.S. Embassy</strong>.</p>
+      </div>
+      <div class="topic-card">
+        <h3>Outreach &amp; Community</h3>
+        <p>In <strong>2022, I volunteered as a physics tutor in village schools</strong>, reaching more than <strong>5,000 students</strong>. In <strong>2026</strong>, through the <strong>Rotaract Club of e-Swahili</strong>, I served at Rotary-supported medical camps that provided free healthcare to <strong>more than 4,000 people</strong> in Dar es Salaam. I am also an active member of <strong>Youth of the United Nations</strong>, engaging in youth-focused global initiatives and community development work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING & MENTORING -->
+<section class="content-section alt">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Teaching</span>
+      <h2>Teaching &amp; Mentoring</h2>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Physics Teaching Intern — ALMIIS International School</span>
+        <span class="entry-date">2026 – Present</span>
+      </div>
+      <p>Teach physics following the Cambridge International curriculum.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Research &amp; Training Assistant — University of Dar es Salaam Computational Unit</span>
+        <span class="entry-date">2025 – Present</span>
+      </div>
+      <p>Conduct research and assist in training graduate and undergraduate students, with work involving molecular dynamics, free-energy calculations, and the use of GROMACS, Python, MATLAB, and Linux-based scientific computing.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Volunteer Physics Tutor — Village Schools</span>
+        <span class="entry-date">2022</span>
+      </div>
+      <p>Organized practical physics activities, prepared and constructed examinations, and helped students engage with physics beyond the classroom, reaching more than 5,000 students.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ONGOING ACTIVITIES -->
+<section class="content-section">
+  <div class="section-inner">
+    <div class="section-header">
+      <span class="section-label">Community &amp; Platforms</span>
+      <h2>Ongoing Activities</h2>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title"><a href="https://tsimhub.co.tz" target="_blank" rel="noopener">Tanzania Simulation Hub</a> — Founder &amp; Developer</span>
+        <span class="entry-date">2026 – Present</span>
+      </div>
+      <p>Building a free online physics-simulation platform spanning IGCSE through university level. The platform is currently used by more than <strong>500 students across Tanzania</strong>, with most simulations made on request.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Rotary International — Rotaract Club of e-Swahili</span>
+        <span class="entry-date">2025 – Present</span>
+      </div>
+      <p>Serve at Rotary-supported medical camps providing free healthcare. In <strong>2026</strong>, our camps provided free healthcare to <strong>more than 4,000 people</strong> in Dar es Salaam. Participate in educational outreach and community initiatives that raise public awareness and support local development.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Youth of the United Nations — Member</span>
+        <span class="entry-date">2025 – Present</span>
+      </div>
+      <p>Engage in youth-focused global initiatives aimed at supporting and improving community life.</p>
+    </div>
+
+    <div class="entry">
+      <div class="entry-head">
+        <span class="entry-title">Tanzania Meteorological Authority — Metrological Training</span>
+        <span class="entry-date">2022</span>
+      </div>
+      <p>Aerodynamics and instrumentation training at TMA Tower.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Anthony Abeli Tepeli · Physics Student at the University of Dar es Salaam</p>
+</footer>
+
+</body>
+</html>
